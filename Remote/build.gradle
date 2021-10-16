@@ -1,0 +1,21 @@
+import dependencies.Dependencies
+
+apply plugin: 'kotlin'
+
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':Data')
+    implementation project(':Common')
+
+    implementation Dependencies.Retrofit
+    implementation Dependencies.Kotlin
+    implementation Dependencies.RxJava
+    implementation Dependencies.JavaxInject
+
+}

@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">SimplePhotos</string>
+    <string name="profile">Profile</string>
+    <string name="address_format">%1$s, %2$s, %3$s, %4$s"</string>
+
+    <string name="network_error">Network Error</string>
+    <string name="retry">Retry</string>
+    <string name="credential_error">Credential error, please check your credentials!!</string>
+    <string name="something_wrong">Something went wrong!!</string>
+    <string name="unknown_error">Unknown error!!</string>
+
+    <string name="my_albums">My Albums</string>
+    <string name="choose_app">Choose app</string>
+    <string name="search_in_images">Search in images</string>
+    <string name="no_data_found">No search result found</string>
+
+</resources>

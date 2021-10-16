@@ -1,0 +1,47 @@
+import dependencies.Config
+import dependencies.Dependencies
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'dagger.hilt.android.plugin'
+
+
+android {
+    compileSdkVersion Config.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion Config.minSdkVersion
+        targetSdkVersion Config.targetSdkVersion
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    androidExtensions {
+        experimental = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+
+dependencies {
+
+    implementation project(':Domain')
+    implementation project(':Data')
+    implementation project(':Remote')
+    implementation project(':Common')
+
+    implementation Dependencies.Kotlin
+    implementation Dependencies.RxJava
+    implementation Dependencies.RxAndroid
+    implementation Dependencies.Hilt
+    kapt Dependencies.HiltCompiler
+    implementation Dependencies.AndroidArchComponent
+
+    testImplementation Dependencies.Testing
+    androidTestImplementation Dependencies.AndroidTesting
+}

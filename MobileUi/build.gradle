@@ -1,0 +1,60 @@
+import dependencies.Config
+import dependencies.Dependencies
+
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-android-extensions'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdk Config.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.magamal.simplephotos"
+        minSdk Config.minSdkVersion
+        targetSdk Config.targetSdkVersion
+        versionCode Config.versionCode
+        versionName Config.versionName
+
+        multiDexEnabled true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation project(':Domain')
+    implementation project(':Data')
+    implementation project(':Remote')
+    implementation project(':Presentation')
+    implementation project(':Common')
+
+    implementation Dependencies.Kotlin
+    implementation Dependencies.AppCompact
+    implementation Dependencies.AndroidXCore
+    implementation Dependencies.AndroidXLibs
+    implementation Dependencies.AndroidArchComponent
+    implementation Dependencies.Hilt
+    kapt Dependencies.HiltCompiler
+
+    implementation Dependencies.ZoomableImage
+    implementation Dependencies.Picasso
+}
